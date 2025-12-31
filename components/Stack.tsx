@@ -13,7 +13,6 @@ export const Stack: React.FC = () => {
             const target = entry.target as HTMLElement;
             const width = target.getAttribute('data-width');
             if (width) {
-              // Small delay to ensure the transition is noticeable
               setTimeout(() => {
                 target.style.width = `${width}%`;
               }, 100);
@@ -32,7 +31,7 @@ export const Stack: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#0f172a]">
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#0f172a] scroll-mt-24">
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">03 /</span>

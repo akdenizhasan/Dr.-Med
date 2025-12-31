@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SOCIALS, PERSONAL_INFO } from '../constants.tsx';
-import { Send } from 'lucide-react';
+import { Send, BookText } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -9,8 +9,11 @@ export const Contact: React.FC = () => {
     alert("This is a demo form. In a real app, this would send an email.");
   };
 
+  // Extract ResearchGate URL from constants
+  const researchGateLink = SOCIALS.find(s => s.platform === "ResearchGate")?.url || "https://www.researchgate.net/profile/Hasan-Akdeniz";
+
   return (
-    <section id="contact" className="py-32 bg-[#0f172a] border-t border-white/5">
+    <section id="contact" className="py-32 bg-[#0f172a] border-t border-white/5 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">05 /</span>
@@ -26,6 +29,18 @@ export const Contact: React.FC = () => {
                 <span className="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-2">Direct Inquiry</span>
                 <a href={`mailto:${PERSONAL_INFO.email}`} className="text-2xl text-white hover:text-cyan-400 transition-colors font-light">
                   {PERSONAL_INFO.email}
+                </a>
+              </div>
+              <div className="block">
+                <span className="text-xs font-mono text-slate-500 uppercase tracking-widest block mb-2">Academic Research</span>
+                <a 
+                  href={researchGateLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group inline-flex items-center gap-3 text-2xl text-white hover:text-cyan-400 transition-colors font-light"
+                >
+                  ResearchGate
+                  <BookText className="w-6 h-6 text-cyan-500 group-hover:scale-110 transition-transform" />
                 </a>
               </div>
               <div className="block">

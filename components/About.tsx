@@ -4,7 +4,7 @@ import { EDUCATION, EXPERIENCE } from '../constants.tsx';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 bg-[#0f172a] border-t border-white/5">
+    <section id="about" className="py-32 bg-[#0f172a] border-t border-white/5 scroll-mt-24">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">02 /</span>
@@ -20,7 +20,7 @@ export const About: React.FC = () => {
           
           <div className="md:col-span-8 space-y-24">
             {/* Experience */}
-            <div className="space-y-12">
+            <div id="experience" className="space-y-12 scroll-mt-32">
               <h3 className="text-xs font-mono text-cyan-500 uppercase tracking-widest border-b border-white/10 pb-4">Experience</h3>
               <div className="space-y-12">
                 {EXPERIENCE.map((item) => (
@@ -37,7 +37,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Education */}
-            <div className="space-y-12">
+            <div id="education" className="space-y-12 scroll-mt-32">
               <h3 className="text-xs font-mono text-cyan-500 uppercase tracking-widest border-b border-white/10 pb-4">Education</h3>
               <div className="space-y-12">
                 {EDUCATION.map((item) => (
