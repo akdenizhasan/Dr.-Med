@@ -48,3 +48,11 @@ export interface Publication {
   type: 'Journal Article' | 'Book Chapter' | 'Presentation' | 'Work in Progress';
   link?: string;
 }
+
+export interface Collaborator {
+  id: string;
+  name: string;
+  role: string;
+  institution: string;
+  collaborationType: string; // e.g., "Co-Author", "Research Partner"
+}

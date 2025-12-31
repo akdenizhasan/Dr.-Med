@@ -1,32 +1,60 @@
-import React from 'react';
-import { SKILLS } from '../constants';
+
+import React, { useEffect, useRef } from 'react';
+import { SKILLS } from '../constants.tsx';
 
 export const Stack: React.FC = () => {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLElement;
+            const width = target.getAttribute('data-width');
+            if (width) {
+              // Small delay to ensure the transition is noticeable
+              setTimeout(() => {
+                target.style.width = `${width}%`;
+              }, 100);
+            }
+            observerRef.current?.unobserve(target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const bars = document.querySelectorAll('.skill-bar');
+    bars.forEach((bar) => observerRef.current?.observe(bar));
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center mb-16 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Research & Technical Skills</h2>
-          <p className="text-slate-400 max-w-2xl">
-            Key methodologies, software, and areas of expertise involved in my research and teaching.
-          </p>
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#000000]">
+      <div className="container mx-auto px-6 relative z-10 max-w-7xl">
+        <div className="flex items-baseline gap-4 mb-20">
+          <span className="text-cyan-500 font-mono text-xl">03 /</span>
+          <h2 className="text-5xl font-bold text-white tracking-tighter uppercase">Research & Tech</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SKILLS.map((skill, index) => (
             <div 
               key={index} 
-              className="group p-6 bg-surface hover:bg-white/5 border border-white/5 hover:border-blue-500/30 rounded-2xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group p-8 bg-[#0a0a0a] border border-white/5 hover:border-cyan-500/30 rounded-sm transition-all duration-500"
             >
-              <div className="flex flex-col items-center gap-4 text-center">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center text-xl font-bold text-slate-300 group-hover:text-blue-400 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-colors">
-                  {skill.name.charAt(0)}
+              <div className="flex flex-col gap-6">
+                <div className="flex justify-between items-center">
+                  <h3 className="font-bold text-white text-lg tracking-tight uppercase">{skill.name}</h3>
+                  <span className="text-xs font-mono text-cyan-500">{skill.level}%</span>
                 </div>
-                <h3 className="font-semibold text-slate-200">{skill.name}</h3>
-                <div className="w-full bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                <div className="w-full bg-white/5 h-[2px] overflow-hidden">
                   <div 
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 h-full rounded-full" 
-                    style={{ width: `${skill.level}%` }}
+                    className="skill-bar bg-cyan-500 h-full transition-all duration-1000 ease-out" 
+                    style={{ width: '0%' }} 
+                    data-width={skill.level}
                   />
                 </div>
               </div>

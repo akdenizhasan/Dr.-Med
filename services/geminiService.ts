@@ -1,25 +1,18 @@
+
 import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
-import { SYSTEM_INSTRUCTION } from '../constants';
+import { SYSTEM_INSTRUCTION } from '../constants.tsx';
 
 let chatSession: Chat | null = null;
-let genAI: GoogleGenAI | null = null;
 
 const getGenAI = () => {
-  if (!genAI) {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      console.error("API_KEY is missing from environment variables.");
-      // In a real app, handle this gracefully. For now, we assume it's there or the chat won't work.
-    }
-    genAI = new GoogleGenAI({ apiKey: apiKey || '' });
-  }
-  return genAI;
+  const apiKey = typeof process !== 'undefined' ? process.env.API_KEY : '';
+  return new GoogleGenAI({ apiKey: apiKey || '' });
 };
 
 export const initializeChat = () => {
   const ai = getGenAI();
   chatSession = ai.chats.create({
-    model: 'gemini-2.5-flash',
+    model: 'gemini-3-flash-preview',
     config: {
       systemInstruction: SYSTEM_INSTRUCTION,
       temperature: 0.7,
@@ -33,7 +26,7 @@ export const sendMessageStream = async function* (message: string) {
   }
 
   if (!chatSession) {
-    yield "Error: Chat session could not be initialized. Please check API key.";
+    yield "Error: Chat session could not be initialized.";
     return;
   }
 
@@ -48,6 +41,6 @@ export const sendMessageStream = async function* (message: string) {
     }
   } catch (error) {
     console.error("Gemini API Error:", error);
-    yield "Sorry, I'm having trouble connecting to the AI service right now.";
+    yield "I'm having trouble connecting to the service. Please check your configuration.";
   }
 };

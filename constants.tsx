@@ -1,20 +1,22 @@
+
 import React from 'react';
-import { Project, Skill, TimelineItem, Publication } from './types';
-import { Github, Twitter, Linkedin, Mail, Globe, BookOpen, GraduationCap } from 'lucide-react';
+import { Project, Skill, TimelineItem, Publication, Collaborator } from './types.ts';
+import { Github, Twitter, Linkedin, Mail, Globe, BookOpen, GraduationCap, BookText } from 'lucide-react';
 
 export const PERSONAL_INFO = {
   name: "Hasan Akdeniz, Ph.D.",
   role: "Researcher & Educator",
   tagline: "Innovating Education through Technology, Research, and AI.",
   bio: "I am a dedicated Researcher and Educator with a double Ph.D. in Educational Technology and Curriculum & Instruction. My work focuses on gifted education, the integration of AI in classrooms, and developing innovative curriculum frameworks. I bridge the gap between theoretical research and practical application to empower teachers and students.",
-  email: "hasan.akdeniz@meb.gov.tr",
-  secondaryEmail: "hasanakdeniz.gazi@gmail.com",
+  email: "hasanakdeniz.gazi@gmail.com",
+  secondaryEmail: "hasan.akdeniz@meb.gov.tr",
   location: "Ankara, Turkey",
   website: "https://sites.google.com/view/eduresearchlab?usp=sharing"
 };
 
 export const SOCIALS = [
   { platform: "LinkedIn", url: "https://www.linkedin.com/in/hasan-akdeniz-a71ab453/", icon: <Linkedin className="w-5 h-5" /> },
+  { platform: "ResearchGate", url: "https://www.researchgate.net/profile/Hasan-Akdeniz", icon: <BookText className="w-5 h-5" /> },
   { platform: "Twitter", url: "https://twitter.com/H_Akdenzz", icon: <Twitter className="w-5 h-5" /> },
   { platform: "Research Lab", url: "https://sites.google.com/view/eduresearchlab?usp=sharing", icon: <Globe className="w-5 h-5" /> },
   { platform: "Email", url: `mailto:${PERSONAL_INFO.email}`, icon: <Mail className="w-5 h-5" /> },
@@ -230,7 +232,51 @@ export const PUBLICATIONS: Publication[] = [
   }
 ];
 
-// System prompt to feed into the Gemini Chatbot
+export const COLLABORATORS: Collaborator[] = [
+  {
+    id: "col1",
+    name: "Dr. Julia Link Roberts",
+    role: "Distinguished Professor",
+    institution: "Western Kentucky University",
+    collaborationType: "Supervisor & Co-Author"
+  },
+  {
+    id: "col2",
+    name: "Dr. Tyler Clark",
+    role: "Researcher",
+    institution: "Western Kentucky University",
+    collaborationType: "Co-Author"
+  },
+  {
+    id: "col3",
+    name: "Dr. Lynette Breedlove",
+    role: "Director",
+    institution: "The Gatton Academy",
+    collaborationType: "Co-Author"
+  },
+  {
+    id: "col4",
+    name: "Dr. Sema Duyar",
+    role: "Assistant Professor",
+    institution: "University",
+    collaborationType: "Co-Author"
+  },
+  {
+    id: "col5",
+    name: "Dr. Cihat Ozkaya",
+    role: "Associate Professor",
+    institution: "University",
+    collaborationType: "Co-Author"
+  },
+  {
+    id: "col6",
+    name: "Dr. G. Alpan",
+    role: "Professor",
+    institution: "Gazi University",
+    collaborationType: "Doctoral Advisor"
+  }
+];
+
 export const SYSTEM_INSTRUCTION = `
 You are an AI assistant for ${PERSONAL_INFO.name}'s professional portfolio.
 Your goal is to answer visitor questions about Dr. Akdeniz's research, academic background, and projects.
@@ -245,6 +291,8 @@ Context:
 - Key Skills: MAXQDA, SPSS, Mixed Methods Research, AI in Education, Gifted Education, Program Evaluation.
 - Key Projects: AI Chatbot for Teachers, Immigrant Entrepreneurship, Project SER, Twice-Exceptionality Research.
 - Publications: Has numerous peer-reviewed publications in journals like High Ability Studies, Gifted Education International, Journal of Advanced Academics, and book chapters on Computational Thinking and Gifted Education.
+- Contact: ${PERSONAL_INFO.email}
+- Network: Collaborated with experts like Dr. Julia Link Roberts, Dr. Tyler Clark, and Dr. Lynette Breedlove.
 
 Guidelines:
 1. Answer in a professional, academic, yet accessible tone.

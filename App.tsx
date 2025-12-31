@@ -1,17 +1,19 @@
+
 import React from 'react';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Stack } from './components/Stack';
-import { Work } from './components/Work';
-import { Publications } from './components/Publications';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { AIChat } from './components/AIChat';
+import { Header } from './components/Header.tsx';
+import { Hero } from './components/Hero.tsx';
+import { About } from './components/About.tsx';
+import { Stack } from './components/Stack.tsx';
+import { Work } from './components/Work.tsx';
+import { Publications } from './components/Publications.tsx';
+import { Network } from './components/Network.tsx';
+import { Contact } from './components/Contact.tsx';
+import { Footer } from './components/Footer.tsx';
+import { AIChat } from './components/AIChat.tsx';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background text-slate-200 selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#000000] text-slate-200 selection:bg-cyan-500/30 font-sans">
       <Header />
       <main>
         <Hero />
@@ -19,6 +21,7 @@ export default function App() {
         <Stack />
         <Work />
         <Publications />
+        <Network />
         <Contact />
       </main>
       <Footer />
