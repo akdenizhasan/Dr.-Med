@@ -4,7 +4,7 @@ import { EDUCATION, EXPERIENCE } from '../constants.tsx';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 bg-[#000000] border-t border-white/5">
+    <section id="about" className="py-32 bg-[#0f172a] border-t border-white/5">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">02 /</span>

@@ -256,24 +256,45 @@ export const COLLABORATORS: Collaborator[] = [
   },
   {
     id: "col4",
-    name: "Dr. Sema Duyar",
+    name: "Dr. Saide Nur Duyar",
     role: "Assistant Professor",
     institution: "University",
     collaborationType: "Co-Author"
   },
   {
     id: "col5",
-    name: "Dr. Cihat Ozkaya",
+    name: "Dr. Canan Ozkaya",
     role: "Associate Professor",
     institution: "University",
     collaborationType: "Co-Author"
   },
   {
-    id: "col6",
-    name: "Dr. G. Alpan",
-    role: "Professor",
-    institution: "Gazi University",
-    collaborationType: "Doctoral Advisor"
+    id: "inst1",
+    name: "The Center for Gifted Studies",
+    role: "Institutional Partner",
+    institution: "Western Kentucky University",
+    collaborationType: "Research Network"
+  },
+  {
+    id: "inst2",
+    name: "The Mahurin Honors College",
+    role: "Academic Partner",
+    institution: "Western Kentucky University",
+    collaborationType: "Education Network"
+  },
+  {
+    id: "inst3",
+    name: "Hong Kong Academy for Gifted Education",
+    role: "International Partner",
+    institution: "HKAGE",
+    collaborationType: "International Network"
+  },
+  {
+    id: "inst4",
+    name: "Ministry of National Education",
+    role: "National Authority",
+    institution: "Republic of Türkiye",
+    collaborationType: "Institutional Network"
   }
 ];
 
@@ -293,6 +314,7 @@ Context:
 - Publications: Has numerous peer-reviewed publications in journals like High Ability Studies, Gifted Education International, Journal of Advanced Academics, and book chapters on Computational Thinking and Gifted Education.
 - Contact: ${PERSONAL_INFO.email}
 - Network: Collaborated with experts like Dr. Julia Link Roberts, Dr. Tyler Clark, and Dr. Lynette Breedlove.
+- Key Institutional Partners: The Center for Gifted Studies (WKU), The Mahurin Honors College, HKAGE, Ministry of National Education (Türkiye).
 
 Guidelines:
 1. Answer in a professional, academic, yet accessible tone.

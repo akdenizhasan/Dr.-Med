@@ -76,7 +76,7 @@ export const AIChat: React.FC = () => {
       </button>
 
       <div 
-        className={`fixed bottom-8 right-8 z-50 w-[90vw] md:w-[380px] h-[550px] bg-[#111111] border border-white/10 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${
+        className={`fixed bottom-8 right-8 z-50 w-[90vw] md:w-[380px] h-[550px] bg-[#1a1a1a] border border-white/10 rounded-3xl shadow-2xl flex flex-col overflow-hidden transition-all duration-500 origin-bottom-right ${
           isOpen ? 'scale-100 opacity-100' : 'scale-90 opacity-0 pointer-events-none translate-y-4'
         }`}
       >
@@ -88,11 +88,11 @@ export const AIChat: React.FC = () => {
           <button onClick={() => setIsOpen(false)} className="text-black/50 hover:text-black"><X className="w-5 h-5" /></button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-5 space-y-4">
+        <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-[#0f172a]">
           {messages.map((msg) => (
             <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
-                  msg.role === 'user' ? 'bg-cyan-600 text-white' : 'bg-[#1a1a1a] text-slate-300 border border-white/5'
+                  msg.role === 'user' ? 'bg-cyan-600 text-white' : 'bg-[#1e293b] text-slate-300 border border-white/5'
                 }`}
               >
                 {msg.text}
@@ -101,7 +101,7 @@ export const AIChat: React.FC = () => {
           ))}
           {isLoading && messages[messages.length - 1].role === 'user' && (
              <div className="flex justify-start">
-               <div className="bg-[#1a1a1a] p-3 rounded-2xl flex items-center gap-2">
+               <div className="bg-[#1e293b] p-3 rounded-2xl flex items-center gap-2">
                  <Loader2 className="w-4 h-4 animate-spin text-cyan-500" />
                </div>
              </div>
@@ -109,8 +109,8 @@ export const AIChat: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={handleSend} className="p-5 bg-[#111111] border-t border-white/5">
-          <div className="flex items-center gap-2 bg-[#1a1a1a] rounded-xl px-4 py-3 border border-white/10 focus-within:border-white/30 transition-all">
+        <form onSubmit={handleSend} className="p-5 bg-[#1a1a1a] border-t border-white/5">
+          <div className="flex items-center gap-2 bg-[#1e293b] rounded-xl px-4 py-3 border border-white/10 focus-within:border-white/30 transition-all">
             <input 
               type="text" 
               value={input}

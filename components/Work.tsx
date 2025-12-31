@@ -5,7 +5,7 @@ import { PROJECTS } from '../constants.tsx';
 
 export const Work: React.FC = () => {
   return (
-    <section id="work" className="py-32 bg-[#000000]">
+    <section id="work" className="py-32 bg-[#0f172a] border-t border-white/5">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">01 /</span>
@@ -18,7 +18,7 @@ export const Work: React.FC = () => {
               key={project.id} 
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 rounded-sm mb-6">
+              <div className="relative aspect-[16/10] overflow-hidden bg-slate-900 rounded-sm mb-6 border border-white/5">
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 

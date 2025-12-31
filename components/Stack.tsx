@@ -32,7 +32,7 @@ export const Stack: React.FC = () => {
   }, []);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[#000000]">
+    <section id="skills" className="py-24 relative overflow-hidden bg-[#0f172a]">
       <div className="container mx-auto px-6 relative z-10 max-w-7xl">
         <div className="flex items-baseline gap-4 mb-20">
           <span className="text-cyan-500 font-mono text-xl">03 /</span>
@@ -43,7 +43,7 @@ export const Stack: React.FC = () => {
           {SKILLS.map((skill, index) => (
             <div 
               key={index} 
-              className="group p-8 bg-[#0a0a0a] border border-white/5 hover:border-cyan-500/30 rounded-sm transition-all duration-500"
+              className="group p-8 bg-[#1e293b] border border-white/5 hover:border-cyan-500/30 rounded-sm transition-all duration-500"
             >
               <div className="flex flex-col gap-6">
                 <div className="flex justify-between items-center">
